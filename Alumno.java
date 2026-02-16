@@ -1,17 +1,24 @@
 public class Alumno {
-  public String nombre;
-  public int telefono;
-  public int edad;
-  public int notas [] = new int [3];
-  
-  public Alumno(String nombre, int telefono, int edad) {
-    this.nombre = nombre;
-    this.telefono = telefono;
-    this.edad = edad;
+    String nombre;
+    String telefono;
+    double[] notas = new double[3];
+    double media;
     
-    for(int i = 0; i < notas.length; i++) {
-      notas[i] = (int) (Math.random()*11);
+    public Alumno(String nombre, String telefono) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        for (int i = 0; i < 3; i++) {
+            this.notas[i] = Math.random() * 10;
+        }
+        calcularMedia();
     }
-  }
+
+    private void calcularMedia() {
+        double sum = 0;
+        for (double nota : notas) {
+            sum += nota;
+        }
+        media = sum / 3;
+    }
 }
 
